@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Pml-prediction assignment by bBinary</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Pml-prediction assignment</h1>
+        <p>Repo for Prediction Assignment from Johns Hopkins&#39; Coursera: Practical Machine Learning</p>
+
+        <p class="view"><a href="https://github.com/bBinary/PML-Prediction_Assignment">View the Project on GitHub <small>bBinary/PML-Prediction_Assignment</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/bBinary/PML-Prediction_Assignment/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/bBinary/PML-Prediction_Assignment/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/bBinary/PML-Prediction_Assignment">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>Welcome!</p>
+
+<p>This is a short description of the work I did for Prediction Assignment from Johns Hopkins' Coursera: Practical Machine Learning course. Most of description can be found in the comments of the code, but as this is required, I had to do this too.</p>
+
+<p>First thing I did after reading provided data, was to visually analyze it. What quickly strikes out is quite a big numer of obervations (approx. 20k) and features. This proved to be problematic for createDataPArtition function, so I nedded to reduce dimensionality of feature plane. Firstly, I tried to remove rows with missing values, but that left me with observations only from class "A". So then, I decided to remove variables with NAs. Together with removal of variable with seemed to be useless for the assignment (X, user_name, new_window, num_window, raw_timestamp_part_1, raw_timestamp_part_2, cvtd_timestamp) I was left with 53 variables.</p>
+
+<p>For the purpose of building model and tesitng it I decided to randomly sample provided data into 2 partitions: one with approx. 70% of samples as training set and reamining samples as testing set. I made sure that in both sets every class is represented proportionally to it's share in provided, original data.</p>
+
+<p>First classification algorithm I wanted to check was a simple decision tree. This seemed like a reasonable choice, as decision trees are capable of explaining relations bettwen variables and the general flow of the proces (as opposed to 'black-box' approaches like Neural Networks). Unfortunately, both error on training set and cross-validation on testing partition showed rather poor performance (approx. 49%). </p>
+
+<p>Having that in mind I decided to go with Random Forrests. Error on the train set looked very promisin (100%). The out of sample error (1-Accuracy_on_testing_partition) was equal to: 1-0.9945=0.0055. Additionally, I could use varImp function for selection of the most important features, but RF gave me 20 out of 20 on first submission, so I decided the model is as good as it could be.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/bBinary">bBinary</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
